@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:0001/database?currentSchema=public
+    username: user
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  redis:
+    host: localhost
+    port: 0002
+    database: 3
+    password: 123
+
+flyway:
+  url: jdbc:postgresql://localhost:0001/database
+  schemas: public
+  user: user
+  password: password
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org.springframework: INFO
+    io.lettuce: TRACE
